@@ -6,7 +6,7 @@ A PostgreSQL project comparing how songs perform on three Billboard weekly chart
 
 ## Data
 
-Three CSV files, one row per song per week:
+The dataset files are inside the `data/` folder. It contains three CSV files, one row per song per week:
 
 | Table | File | Rows | Date range | Chart size |
 |---|---|---|---|---|
