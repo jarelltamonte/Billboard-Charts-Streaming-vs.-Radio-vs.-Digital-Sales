@@ -39,7 +39,7 @@ Run the files in `sql/` in this order:
 
 | File | Question | Finding |
 |---|---|---|
-| `04_distinct_songs_per_year.sql` | How many different songs reach the top 25 each year? | Digital has the most in every year (189 in 2013, peak 416 in 2023). Radio stays flat (147 in 2013, 128 in 2025). Streaming peaks at 324 in 2022. |
+| `04_distinct_songs_per_year.sql` | How many different songs reach the top 25 each year? | Digital has the most in every year (189 in 2013, peak 416 in 2023). Radio stays flat (147 in 2013, 127 in 2024). Streaming peaks at 324 in 2022. |
 | `05_song_longevity_by_era.sql` | How many weeks does a typical song stay in the top 25? | Median weeks by debut era (2013-17, 2018-22, 2023-26): radio 6, 8, 9; streaming 8, 1, 1; digital 3, 1, 1. |
 | `06_top_artists.sql` | Which artists spend the most weeks in the top 25? | Taylor Swift is the only artist in the top 3 on all three charts. Drake leads streaming (808 weeks, 178 songs). |
 | `07_top_songs.sql` | Which songs stay in the top 25 the longest? | "Lose Control" by Teddy Swims is #1 on all three charts (streaming 98 weeks, radio 91, digital 110). "Beautiful Things" by Benson Boone is top 5 on all three. |
