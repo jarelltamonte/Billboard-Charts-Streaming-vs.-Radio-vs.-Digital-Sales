@@ -43,7 +43,7 @@ Run the files in `sql/` in this order:
 | `05_song_longevity_by_era.sql` | How many weeks does a typical song stay in the top 25? | Median weeks by debut era (2013-17, 2018-22, 2023-26): radio 6, 8, 9; streaming 8, 1, 1; digital 3, 1, 1. |
 | `06_top_artists.sql` | Which artists spend the most weeks in the top 25? | Taylor Swift is the only artist in the top 3 on all three charts. Drake leads streaming (808 weeks, 178 songs). |
 | `07_top_songs.sql` | Which songs stay in the top 25 the longest? | "Lose Control" by Teddy Swims is #1 on all three charts (streaming 98 weeks, radio 91, digital 110). "Beautiful Things" by Benson Boone is top 5 on all three. |
-| `08_hits_radio_ignored.sql` | 579 of 1,022 (57%), counting songs that reached the top 5 at least 180 days before the data ends. |
+| `08_hits_radio_ignored.sql` | What share of digital top-5 songs never made the radio top 25? | 579 of 1,022 (57%), counting songs that reached the top 5 at least 180 days before the data ends. |
 | `09_debut_lag_stream_vs_radio.sql` | Which chart does a song reach first? | Of 680 songs on both charts, radio comes a median of 35 days after streaming. Radio is later for 79%, the same week for 9%, and first for 12%. |
 
 ## Limitations
