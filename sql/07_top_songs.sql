@@ -16,9 +16,9 @@
 -- FINDING:  "Lose Control" by Teddy Swims spent the most weeks in the top 25 on
 --           all three charts (streaming 98, radio 91, digital 110).
 --           "Beautiful Things" by Benson Boone is also in the top 5 on all
---           three (78 / 82 / 83). Radio's longest-running songs also spend the
---           most weeks at #1, e.g. "A Bar Song (Tipsy)" 27 and
---           "Blinding Lights" 26.
+--           three (78 / 82 / 83).
+--           Among radio's top 5, "A Bar Song (Tipsy)" (27 weeks) and
+--           "Blinding Lights" (26) spent the most weeks at #1.
 
 WITH song_stats AS (
   SELECT chart, song, artist,
