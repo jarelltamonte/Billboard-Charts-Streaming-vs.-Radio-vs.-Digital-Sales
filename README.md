@@ -6,7 +6,7 @@ A PostgreSQL project comparing how songs perform on three Billboard weekly chart
 
 ## Data
 
-The dataset is located in the `/sql` folder. Three CSV files, one row per song per week:
+Three CSV files, one row per song per week:
 
 | Table | File | Rows | Date range | Chart size |
 |---|---|---|---|---|
@@ -32,7 +32,7 @@ Run the files in `sql/` in this order:
 1. `01_create_tables.sql` creates the three empty tables. **It deletes existing data.**
 2. Import the three CSVs into the matching tables (pgAdmin: right-click the table, then Import/Export Data. Use format csv, header on, delimiter `,`).
 3. `02_cleanup_after_import.sql` converts `weeks_in_charts` to a number and checks the row counts.
-4. `03_views.sql` creates the `all_charts` and `fair_charts` views.
+4. `03_views.sql` creates the `all_charts` and `fair_charts` views, plus two helper functions (`song_key`, `artist_key`) used to match songs across charts.
 5. Run any analysis file (`04` to `09`) in any order.
 
 ## Analyses and findings
@@ -43,12 +43,12 @@ Run the files in `sql/` in this order:
 | `05_song_longevity_by_era.sql` | How many weeks does a typical song stay in the top 25? | Median weeks by debut era (2013-17, 2018-22, 2023-26): radio 6, 8, 9; streaming 8, 1, 1; digital 3, 1, 1. |
 | `06_top_artists.sql` | Which artists spend the most weeks in the top 25? | Taylor Swift is the only artist in the top 3 on all three charts. Drake leads streaming (808 weeks, 178 songs). |
 | `07_top_songs.sql` | Which songs stay in the top 25 the longest? | "Lose Control" by Teddy Swims is #1 on all three charts (streaming 98 weeks, radio 91, digital 110). "Beautiful Things" by Benson Boone is top 5 on all three. |
-| `08_hits_radio_ignored.sql` | What share of digital top-5 songs never made the radio top 25? | 567 of 1,022 (55%), counting songs that reached the top 5 at least 180 days before the data ends. Many are fan-driven acts such as BTS. |
-| `09_debut_lag_stream_vs_radio.sql` | Which chart does a song reach first? | Of 680 songs on both charts, radio comes a median of 35 days after streaming. Radio is later for 79%, the same week for 9%, and first for 12%. |
+| `08_hits_radio_ignored.sql` | What share of digital top-5 songs never made the radio top 25? | 542 of 1,022 (53%), counting songs that reached the top 5 at least 180 days before the data ends. The biggest groups are Taylor Swift (29 songs), BTS (23) and Tom MacDonald (19). |
+| `09_debut_lag_stream_vs_radio.sql` | Which chart does a song reach first? | Of 693 songs on both charts, radio comes a median of 35 days after streaming. Radio is later for 79%, the same week for 9%, and first for 12%. |
 
 ## Limitations
 
-- Songs are matched across charts by song title and artist text (ignoring capitalization). Different artist credits (for example "Featuring" vs "&") can make the same song look like two songs.
+- Songs are matched across charts by a cleaned song title plus the lead artist, so punctuation, capitalization and "Featuring" vs "Feat." don't matter. A remix with extra guests counts as the same song, and a song credited to a different lead artist on another chart can still be missed.
 - Lead artist is found with a text pattern, so guest artists get no credit and some group names containing "&" may be cut.
 - Recent songs may not have reached a slower chart yet, so some analyses leave out songs from the last few months.
 - "Debut" means the first week a song entered the top 25, not its release date.
